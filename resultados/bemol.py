@@ -31,12 +31,13 @@ print(df.head())
 df.to_csv('dados_orcamento.csv', encoding='utf-8', index=False) # CSV
 
 # # # GRAFICO # # #
-p1 = plt.bar(ind, d2_xls['orcado'], 0.5) # Barras orcados
-p2 = plt.bar(ind, d1_xls['realizado'], 0.5) # Barras realizados
+plt.rcParams["figure.figsize"] = [20, 7] # Tamanho do grafico
+p1 = plt.bar(ind, d2_xls['orcado'], 0.6) # Barras orcados
+p2 = plt.bar(ind, d1_xls['realizado'], 0.6) # Barras realizados
 plt.title('Grafico Orcamento') # Titulo
 plt.xticks(ind, d1_xls['mes']) # Eixo x - meses
 plt.xlabel('Meses') # Nome eixo x
 plt.ylabel('R$') # Nome eixo y
 plt.legend((p1[0], p2[0]), ('Orcado', 'Realizado')) # Legendas
+plt.savefig('grafico_orcamento.png', transparent = False) # Salvar em arquivo
 plt.show()
-plt.savefig('grafico_orcamento.png', transparent = True)
